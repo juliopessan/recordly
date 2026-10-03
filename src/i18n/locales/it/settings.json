@@ -31,7 +31,10 @@
 			"minPause": "Pausa minima da tagliare",
 			"preview": "{{count}} pause · verrebbero tagliati {{seconds}}s",
 			"analyze": "Trova i silenzi",
-			"analyzing": "Analisi dell'audio…"
+			"analyzing": "Analisi dell'audio…",
+			"fillerPreview": "{{count}} intercalari · {{seconds}}s",
+			"fillerNeedsCaptions": "Genera i sottotitoli per trovare gli intercalari",
+			"removeFillers": "Rimuovi gli intercalari"
 		}
 	},
 	"effects": {

@@ -128,4 +128,7 @@ export interface SilenceRemovalControls {
 	preview: { cutCount: number; removedSourceMs: number } | null;
 	analyze: () => void | Promise<void>;
 	apply: () => void;
+	/** Null until captions with word timings exist. Figures are computed from the clips. */
+	fillerPreview: { cutCount: number; removedSourceMs: number } | null;
+	applyFillers: () => void;
 }

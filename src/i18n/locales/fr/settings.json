@@ -31,7 +31,10 @@
 			"minPause": "Plus courte pause à couper",
 			"preview": "{{count}} pauses · {{seconds}}s seraient coupées",
 			"analyze": "Trouver les silences",
-			"analyzing": "Analyse de l'audio…"
+			"analyzing": "Analyse de l'audio…",
+			"fillerPreview": "{{count}} mots de remplissage · {{seconds}}s",
+			"fillerNeedsCaptions": "Générez des sous-titres pour trouver les mots de remplissage",
+			"removeFillers": "Supprimer les mots de remplissage"
 		}
 	},
 	"effects": {

@@ -31,7 +31,10 @@
 			"minPause": "Kürzeste zu schneidende Pause",
 			"preview": "{{count}} Pausen · {{seconds}}s würden geschnitten",
 			"analyze": "Stille finden",
-			"analyzing": "Audio wird analysiert…"
+			"analyzing": "Audio wird analysiert…",
+			"fillerPreview": "{{count}} Füllwörter · {{seconds}}s",
+			"fillerNeedsCaptions": "Untertitel erzeugen, um Füllwörter zu finden",
+			"removeFillers": "Füllwörter entfernen"
 		}
 	},
 	"effects": {

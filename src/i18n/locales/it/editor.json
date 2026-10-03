@@ -202,6 +202,8 @@
 		"noSource": "Nessun video di origine caricato",
 		"failed": "Impossibile analizzare l'audio della registrazione",
 		"none": "Nessuna pausa lunga trovata",
-		"removed": "{{count}} pause rimosse, {{seconds}}s tagliati"
+		"removed": "{{count}} pause rimosse, {{seconds}}s tagliati",
+		"noFillers": "Nessun intercalare trovato",
+		"fillersRemoved": "{{count}} intercalari rimossi, {{seconds}}s tagliati"
 	}
 }

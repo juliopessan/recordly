@@ -31,7 +31,10 @@
 			"minPause": "要剪掉的最短停顿",
 			"preview": "{{count}} 处停顿 · 将剪掉 {{seconds}} 秒",
 			"analyze": "查找静音",
-			"analyzing": "正在分析音频…"
+			"analyzing": "正在分析音频…",
+			"fillerPreview": "{{count}} 个口头语 · {{seconds}} 秒",
+			"fillerNeedsCaptions": "生成字幕后即可查找口头语",
+			"removeFillers": "移除口头语"
 		}
 	},
 	"effects": {

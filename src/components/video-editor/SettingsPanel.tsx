@@ -2782,6 +2782,35 @@ export function SettingsPanel({
 									: tSettings("clip.silence.analyze", "Find silences")}
 							</Button>
 						)}
+						<p className="text-xs text-muted-foreground tabular-nums" role="status">
+							{silenceRemoval.fillerPreview
+								? tSettings(
+										"clip.silence.fillerPreview",
+										"{{count}} filler words · {{seconds}}s",
+										{
+											count: silenceRemoval.fillerPreview.cutCount,
+											seconds: (
+												silenceRemoval.fillerPreview.removedSourceMs / 1000
+											).toFixed(1),
+										},
+									)
+								: tSettings(
+										"clip.silence.fillerNeedsCaptions",
+										"Generate captions to find filler words",
+									)}
+						</p>
+						<Button
+							type="button"
+							size="sm"
+							variant="secondary"
+							isDisabled={
+								!silenceRemoval.fillerPreview ||
+								silenceRemoval.fillerPreview.cutCount === 0
+							}
+							onClick={silenceRemoval.applyFillers}
+						>
+							{tSettings("clip.silence.removeFillers", "Remove filler words")}
+						</Button>
 					</div>
 				)}
 			</section>

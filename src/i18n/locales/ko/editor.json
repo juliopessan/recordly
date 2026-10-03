@@ -202,6 +202,8 @@
 		"noSource": "불러온 원본 영상이 없습니다",
 		"failed": "녹화 오디오를 분석할 수 없습니다",
 		"none": "긴 무음 구간이 없습니다",
-		"removed": "{{count}}개 무음 구간 제거, {{seconds}}초 잘라냄"
+		"removed": "{{count}}개 무음 구간 제거, {{seconds}}초 잘라냄",
+		"noFillers": "군더더기 단어가 없습니다",
+		"fillersRemoved": "군더더기 단어 {{count}}개 제거, {{seconds}}초 잘라냄"
 	}
 }

@@ -202,6 +202,8 @@
 		"noSource": "未載入來源影片",
 		"failed": "無法分析錄製音訊",
 		"none": "未發現較長停頓",
-		"removed": "已移除 {{count}} 處停頓，剪掉 {{seconds}} 秒"
+		"removed": "已移除 {{count}} 處停頓，剪掉 {{seconds}} 秒",
+		"noFillers": "未發現口頭禪",
+		"fillersRemoved": "已移除 {{count}} 個口頭禪，剪掉 {{seconds}} 秒"
 	}
 }

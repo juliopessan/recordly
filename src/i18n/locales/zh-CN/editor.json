@@ -202,6 +202,8 @@
 		"noSource": "未加载源视频",
 		"failed": "无法分析录制音频",
 		"none": "未发现较长停顿",
-		"removed": "已移除 {{count}} 处停顿，剪掉 {{seconds}} 秒"
+		"removed": "已移除 {{count}} 处停顿，剪掉 {{seconds}} 秒",
+		"noFillers": "未发现口头语",
+		"fillersRemoved": "已移除 {{count}} 个口头语，剪掉 {{seconds}} 秒"
 	}
 }

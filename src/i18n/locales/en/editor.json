@@ -195,7 +195,9 @@
 		"noSource": "No source video is loaded",
 		"failed": "Could not analyze the recording audio",
 		"none": "No long pauses found",
-		"removed": "Removed {{count}} pauses, {{seconds}}s cut"
+		"removed": "Removed {{count}} pauses, {{seconds}}s cut",
+		"noFillers": "No filler words found",
+		"fillersRemoved": "Removed {{count}} filler words, {{seconds}}s cut"
 	},
 	"timeline": {
 		"expand": "Expand Timeline",

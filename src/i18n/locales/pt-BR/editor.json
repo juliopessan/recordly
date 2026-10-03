@@ -202,6 +202,8 @@
 		"noSource": "Nenhum vídeo de origem carregado",
 		"failed": "Não foi possível analisar o áudio da gravação",
 		"none": "Nenhuma pausa longa encontrada",
-		"removed": "{{count}} pausas removidas, {{seconds}}s cortados"
+		"removed": "{{count}} pausas removidas, {{seconds}}s cortados",
+		"noFillers": "Nenhuma palavra de preenchimento encontrada",
+		"fillersRemoved": "{{count}} palavras de preenchimento removidas, {{seconds}}s cortados"
 	}
 }

@@ -36,7 +36,10 @@
 			"minPause": "Shortest pause to cut",
 			"preview": "{{count}} pauses · {{seconds}}s would be cut",
 			"analyze": "Find silences",
-			"analyzing": "Analyzing audio…"
+			"analyzing": "Analyzing audio…",
+			"fillerPreview": "{{count}} filler words · {{seconds}}s",
+			"fillerNeedsCaptions": "Generate captions to find filler words",
+			"removeFillers": "Remove filler words"
 		},
 		"delete": "Delete Clip"
 	},

@@ -202,6 +202,8 @@
 		"noSource": "Aucune vidéo source n'est chargée",
 		"failed": "Impossible d'analyser l'audio de l'enregistrement",
 		"none": "Aucune longue pause trouvée",
-		"removed": "{{count}} pauses supprimées, {{seconds}}s coupées"
+		"removed": "{{count}} pauses supprimées, {{seconds}}s coupées",
+		"noFillers": "Aucun mot de remplissage trouvé",
+		"fillersRemoved": "{{count}} mots de remplissage supprimés, {{seconds}}s coupées"
 	}
 }

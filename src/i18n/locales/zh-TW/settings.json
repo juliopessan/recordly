@@ -31,7 +31,10 @@
 			"minPause": "要剪掉的最短停頓",
 			"preview": "{{count}} 處停頓 · 將剪掉 {{seconds}} 秒",
 			"analyze": "尋找靜音",
-			"analyzing": "正在分析音訊…"
+			"analyzing": "正在分析音訊…",
+			"fillerPreview": "{{count}} 個口頭禪 · {{seconds}} 秒",
+			"fillerNeedsCaptions": "產生字幕後即可尋找口頭禪",
+			"removeFillers": "移除口頭禪"
 		}
 	},
 	"effects": {

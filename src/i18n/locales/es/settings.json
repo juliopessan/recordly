@@ -31,7 +31,10 @@
 			"minPause": "Pausa mínima a cortar",
 			"preview": "{{count}} pausas · se cortarían {{seconds}}s",
 			"analyze": "Buscar silencios",
-			"analyzing": "Analizando el audio…"
+			"analyzing": "Analizando el audio…",
+			"fillerPreview": "{{count}} muletillas · {{seconds}}s",
+			"fillerNeedsCaptions": "Genera subtítulos para encontrar muletillas",
+			"removeFillers": "Eliminar muletillas"
 		}
 	},
 	"effects": {

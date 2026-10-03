@@ -31,7 +31,10 @@
 			"minPause": "Kortste pauze om te knippen",
 			"preview": "{{count}} pauzes · {{seconds}}s zou worden geknipt",
 			"analyze": "Stiltes zoeken",
-			"analyzing": "Audio analyseren…"
+			"analyzing": "Audio analyseren…",
+			"fillerPreview": "{{count}} stopwoorden · {{seconds}}s",
+			"fillerNeedsCaptions": "Genereer ondertitels om stopwoorden te vinden",
+			"removeFillers": "Stopwoorden verwijderen"
 		}
 	},
 	"effects": {

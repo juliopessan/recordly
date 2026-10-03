@@ -202,6 +202,8 @@
 		"noSource": "Kein Quellvideo geladen",
 		"failed": "Das Audio der Aufnahme konnte nicht analysiert werden",
 		"none": "Keine langen Pausen gefunden",
-		"removed": "{{count}} Pausen entfernt, {{seconds}}s geschnitten"
+		"removed": "{{count}} Pausen entfernt, {{seconds}}s geschnitten",
+		"noFillers": "Keine Füllwörter gefunden",
+		"fillersRemoved": "{{count}} Füllwörter entfernt, {{seconds}}s geschnitten"
 	}
 }

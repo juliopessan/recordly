@@ -31,7 +31,10 @@
 			"minPause": "Минимальная пауза для удаления",
 			"preview": "Пауз: {{count}} · будет вырезано {{seconds}} с",
 			"analyze": "Найти паузы",
-			"analyzing": "Анализ звука…"
+			"analyzing": "Анализ звука…",
+			"fillerPreview": "Слов-паразитов: {{count}} · {{seconds}} с",
+			"fillerNeedsCaptions": "Создайте субтитры, чтобы найти слова-паразиты",
+			"removeFillers": "Удалить слова-паразиты"
 		}
 	},
 	"effects": {

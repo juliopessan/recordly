@@ -202,6 +202,8 @@
 		"noSource": "Geen bronvideo geladen",
 		"failed": "De audio van de opname kon niet worden geanalyseerd",
 		"none": "Geen lange pauzes gevonden",
-		"removed": "{{count}} pauzes verwijderd, {{seconds}}s geknipt"
+		"removed": "{{count}} pauzes verwijderd, {{seconds}}s geknipt",
+		"noFillers": "Geen stopwoorden gevonden",
+		"fillersRemoved": "{{count}} stopwoorden verwijderd, {{seconds}}s geknipt"
 	}
 }

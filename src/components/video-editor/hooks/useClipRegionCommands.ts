@@ -18,13 +18,14 @@ import {
 } from "../clipSequence";
 import { getClipSourceStartMs, type AnnotationRegion, type AudioRegion } from "../types";
 import { planClipSplit } from "../clipSplit";
+import { findFillerWordSpans, hasWordTimings } from "../fillerWords";
 import {
 	DEFAULT_SILENCE_REMOVAL_OPTIONS,
 	planSilenceRemoval,
 	type SilenceRemovalControls,
 	type SilenceSpan,
 } from "../silenceRemoval";
-import type { ClipRegion, EditorEffectSection, ZoomRegion } from "../types";
+import type { CaptionCue, ClipRegion, EditorEffectSection, ZoomRegion } from "../types";
 import { supportsPreviewPlaybackRate } from "../videoPlayback/playbackRate";
 
 type Translator = (
@@ -38,6 +39,7 @@ interface UseClipRegionCommandsParams {
 	setAudioRegions: Dispatch<SetStateAction<AudioRegion[]>>;
 	sourceDurationMs: number;
 	videoSourcePath: string | null;
+	autoCaptions: CaptionCue[];
 	clipRegions: ClipRegion[];
 	setClipRegions: Dispatch<SetStateAction<ClipRegion[]>>;
 	zoomRegions: ZoomRegion[];
@@ -58,6 +60,7 @@ export function useClipRegionCommands({
 	setAudioRegions,
 	sourceDurationMs,
 	videoSourcePath,
+	autoCaptions,
 	clipRegions,
 	setClipRegions,
 	setZoomRegions,
@@ -160,6 +163,39 @@ export function useClipRegionCommands({
 		t,
 	]);
 
+	const fillerSpans = useMemo(() => findFillerWordSpans(autoCaptions), [autoCaptions]);
+	const fillerPreview = useMemo(() => {
+		if (!hasWordTimings(autoCaptions)) return null;
+		const plan = planSilenceRemoval({
+			clipRegions,
+			silences: fillerSpans,
+			createId: () => "preview",
+			options: { minSilenceMs: 0, keepPadMs: 0 },
+		});
+		return { cutCount: plan.cutCount, removedSourceMs: plan.removedSourceMs };
+	}, [autoCaptions, clipRegions, fillerSpans]);
+
+	const applyFillerRemoval = useCallback(() => {
+		const plan = planSilenceRemoval({
+			clipRegions,
+			silences: fillerSpans,
+			createId: () => `clip-${nextClipIdRef.current++}`,
+			options: { minSilenceMs: 0, keepPadMs: 0 },
+		});
+		if (plan.cutCount === 0) {
+			toast.info(t("editor.silence.noFillers", "No filler words found"));
+			return;
+		}
+		applySequence(plan.clips);
+		setSelectedClipId(null);
+		toast.success(
+			t("editor.silence.fillersRemoved", "Removed {{count}} filler words, {{seconds}}s cut", {
+				count: plan.cutCount,
+				seconds: (plan.removedSourceMs / 1000).toFixed(1),
+			}),
+		);
+	}, [applySequence, clipRegions, fillerSpans, nextClipIdRef, setSelectedClipId, t]);
+
 	const silenceRemoval: SilenceRemovalControls = {
 		minSilenceMs,
 		setMinSilenceMs,
@@ -167,6 +203,8 @@ export function useClipRegionCommands({
 		preview: silencePreview,
 		analyze: analyzeSilence,
 		apply: applySilenceRemoval,
+		fillerPreview,
+		applyFillers: applyFillerRemoval,
 	};
 
 	const handleSelectClip = useCallback(
