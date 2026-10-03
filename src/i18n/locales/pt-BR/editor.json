@@ -184,7 +184,16 @@
 		"completePercent": "{{percent}}% concluído",
 		"issue": "Problema na exportação",
 		"complete": "Exportação concluída",
-		"savedSuccessfully": "Seu arquivo foi salvo com sucesso."
+		"savedSuccessfully": "Seu arquivo foi salvo com sucesso.",
+		"ledger": {
+			"title": "Medido",
+			"output": "Saída",
+			"frames": "Quadros",
+			"elapsed": "Renderizado em",
+			"speed": "Velocidade",
+			"pipeline": "Pipeline",
+			"skipped": "Caminho nativo rápido ignorado: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "Processando áudio com edições de velocidade/sobreposição"

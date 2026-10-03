@@ -1,3 +1,4 @@
+import { ExportLedger } from "../export/ExportLedger";
 import { useEffect, useState } from "react";
 import { CloudArrowUp } from "@/components/ui/icons";
 import { CloudShareButton } from "../cloud/CloudShareButton";
@@ -15,7 +16,7 @@ import type { useExportSettings } from "../export/useExportSettings";
 import type { useExportStatusViewModel } from "../export/useExportStatusViewModel";
 
 type Props = {
- projectPath?: string | null;
+	projectPath?: string | null;
 	t: ReturnType<typeof useI18n>["t"];
 	exportSettings: ReturnType<typeof useExportSettings>;
 	exportSession: ReturnType<typeof useExportSession>;
@@ -88,6 +89,7 @@ export function EditorExportMenu(props: Props) {
 		showExportDropdown,
 		setShowExportDropdown,
 		exportedFilePath,
+		exportReport,
 		hasPendingExportSave,
 	} = exportSession;
 	const { gifOutputDimensions, mp4OutputDimensions } = exportDimensions;
@@ -288,6 +290,7 @@ export function EditorExportMenu(props: Props) {
 							<p className="mt-3 truncate text-xs text-muted-foreground/70">
 								{exportedFilePath.split(/[\\/]/).pop()}
 							</p>
+							{exportReport ? <ExportLedger report={exportReport} t={t} /> : null}
 							<div className="mt-4 flex gap-2">
 								<Button
 									type="button"
@@ -360,7 +363,7 @@ export function EditorExportMenu(props: Props) {
 			</Popover>
 			{shareOpen && (
 				<CloudShareButton
- projectPath={props.projectPath}
+					projectPath={props.projectPath}
 					hideTrigger
 					open={shareOpen}
 					onOpenChange={setShareOpen}

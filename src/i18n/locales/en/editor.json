@@ -182,7 +182,16 @@
 		"completePercent": "{{percent}}% complete",
 		"issue": "Export issue",
 		"complete": "Export complete",
-		"savedSuccessfully": "Your file was saved successfully."
+		"savedSuccessfully": "Your file was saved successfully.",
+		"ledger": {
+			"title": "Measured",
+			"output": "Output",
+			"frames": "Frames",
+			"elapsed": "Rendered in",
+			"speed": "Speed",
+			"pipeline": "Pipeline",
+			"skipped": "Fast native path skipped: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "Processing audio with speed/overlay edits"

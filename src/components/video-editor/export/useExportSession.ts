@@ -2,6 +2,7 @@ import { useCallback, useRef, useState } from "react";
 import type { ExportProgress } from "@/lib/exporter";
 import { resolveSavingExportProgress } from "../exportProgressState";
 import type { PendingExportSave } from "./exportPersistence";
+import type { ExportReport } from "./exportReport";
 
 export type CancelableExporter = { cancel(): void };
 
@@ -11,6 +12,7 @@ export function useExportSession() {
 	const [exportError, setExportError] = useState<string | null>(null);
 	const [showExportDropdown, setShowExportDropdown] = useState(false);
 	const [exportedFilePath, setExportedFilePath] = useState<string>();
+	const [exportReport, setExportReport] = useState<ExportReport | null>(null);
 	const [hasPendingExportSave, setHasPendingExportSave] = useState(false);
 	const exporterRef = useRef<CancelableExporter | null>(null);
 	const exportRunIdRef = useRef(0);
@@ -41,6 +43,8 @@ export function useExportSession() {
 		setShowExportDropdown,
 		exportedFilePath,
 		setExportedFilePath,
+		exportReport,
+		setExportReport,
 		hasPendingExportSave,
 		setHasPendingExportSave,
 		exporterRef,

@@ -184,7 +184,16 @@
 		"completePercent": "{{percent}}% completado",
 		"issue": "Problema de exportación",
 		"complete": "Exportación completada",
-		"savedSuccessfully": "Tu archivo se guardó correctamente."
+		"savedSuccessfully": "Tu archivo se guardó correctamente.",
+		"ledger": {
+			"title": "Medido",
+			"output": "Salida",
+			"frames": "Fotogramas",
+			"elapsed": "Renderizado en",
+			"speed": "Velocidad",
+			"pipeline": "Pipeline",
+			"skipped": "Ruta nativa rápida omitida: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "Procesando audio con ediciones de velocidad/superposición"

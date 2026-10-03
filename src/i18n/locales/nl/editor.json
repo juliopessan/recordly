@@ -184,7 +184,16 @@
 		"completePercent": "{{percent}}% voltooid",
 		"issue": "Exportprobleem",
 		"complete": "Export voltooid",
-		"savedSuccessfully": "Je bestand is succesvol opgeslagen."
+		"savedSuccessfully": "Je bestand is succesvol opgeslagen.",
+		"ledger": {
+			"title": "Gemeten",
+			"output": "Uitvoer",
+			"frames": "Frames",
+			"elapsed": "Gerenderd in",
+			"speed": "Snelheid",
+			"pipeline": "Pipeline",
+			"skipped": "Snel native pad overgeslagen: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "Audio verwerken met snelheids-/overlay-bewerkingen"

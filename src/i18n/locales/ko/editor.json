@@ -184,7 +184,16 @@
 		"completePercent": "{{percent}}% 완료",
 		"issue": "내보내기 오류",
 		"complete": "내보내기 완료",
-		"savedSuccessfully": "파일이 성공적으로 저장되었습니다."
+		"savedSuccessfully": "파일이 성공적으로 저장되었습니다.",
+		"ledger": {
+			"title": "측정값",
+			"output": "출력",
+			"frames": "프레임",
+			"elapsed": "렌더링 시간",
+			"speed": "속도",
+			"pipeline": "파이프라인",
+			"skipped": "빠른 네이티브 경로 건너뜀: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "속도/오버레이 편집으로 오디오 처리 중"

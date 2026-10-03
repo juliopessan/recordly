@@ -184,7 +184,16 @@
 		"completePercent": "{{percent}}% completato",
 		"issue": "Problema di esportazione",
 		"complete": "Esportazione completata",
-		"savedSuccessfully": "Il tuo file è stato salvato con successo."
+		"savedSuccessfully": "Il tuo file è stato salvato con successo.",
+		"ledger": {
+			"title": "Misurato",
+			"output": "Uscita",
+			"frames": "Fotogrammi",
+			"elapsed": "Renderizzato in",
+			"speed": "Velocità",
+			"pipeline": "Pipeline",
+			"skipped": "Percorso nativo veloce saltato: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "Elaborazione audio con modifiche di velocità/overlay"

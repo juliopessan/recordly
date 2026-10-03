@@ -1,3 +1,4 @@
+import { buildExportReport } from "./exportReport";
 import { useCallback, useRef } from "react";
 import { toast } from "@/components/ui/toast";
 import { getMp4ExportBitrate } from "@/lib/exporter/exportBitrate";
@@ -65,6 +66,7 @@ export function useExportRunner(input: ExportRunnerInput) {
 				setExportError,
 				setShowExportDropdown,
 				setExportedFilePath,
+				setExportReport,
 				setHasPendingExportSave,
 				exporterRef,
 				pendingExportSaveRef,
@@ -465,6 +467,15 @@ export function useExportRunner(input: ExportRunnerInput) {
 							}
 							showExportSuccessToast(saveResult.path);
 							setExportedFilePath(saveResult.path);
+							setExportReport(
+								buildExportReport({
+									metrics: result.metrics,
+									width: exportWidth,
+									height: exportHeight,
+									frameRate: selectedMp4FrameRate,
+									bitrate,
+								}),
+							);
 							if (smokeExportConfig.enabled) {
 								window.close();
 								return;

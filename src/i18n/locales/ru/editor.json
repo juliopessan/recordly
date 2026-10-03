@@ -184,7 +184,16 @@
 		"completePercent": "Готово: {{percent}}%",
 		"issue": "Ошибка экспорта",
 		"complete": "Экспорт завершён",
-		"savedSuccessfully": "Файл сохранён"
+		"savedSuccessfully": "Файл сохранён",
+		"ledger": {
+			"title": "Измерено",
+			"output": "Вывод",
+			"frames": "Кадры",
+			"elapsed": "Рендер за",
+			"speed": "Скорость",
+			"pipeline": "Конвейер",
+			"skipped": "Быстрый нативный путь пропущен: {{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "Обработка звука (скорость, наложения)"

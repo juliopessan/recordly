@@ -184,7 +184,16 @@
 		"completePercent": "已完成 {{percent}}%",
 		"issue": "导出问题",
 		"complete": "导出完成",
-		"savedSuccessfully": "文件已成功保存。"
+		"savedSuccessfully": "文件已成功保存。",
+		"ledger": {
+			"title": "实测",
+			"output": "输出",
+			"frames": "帧数",
+			"elapsed": "渲染耗时",
+			"speed": "速度",
+			"pipeline": "管线",
+			"skipped": "已跳过快速原生路径：{{reasons}}"
+		}
 	},
 	"export": {
 		"processingAudioEdits": "正在处理带有速度/叠加编辑的音频"

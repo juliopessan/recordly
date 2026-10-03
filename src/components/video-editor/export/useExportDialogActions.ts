@@ -48,6 +48,7 @@ export function useExportDialogActions({
 		session.setExportProgress(null);
 		session.setExportError(null);
 		session.setExportedFilePath(undefined);
+		session.setExportReport(null);
 	}, [videoPath, session]);
 
 	const resolveCurrentSettings = useCallback(
@@ -89,6 +90,7 @@ export function useExportDialogActions({
 		if (!resolvedSettings) return;
 		session.setExportError(null);
 		session.setExportedFilePath(undefined);
+		session.setExportReport(null);
 		session.setShowExportDropdown(true);
 		void handleExport(resolvedSettings, { destination: "download" });
 	}, [resolveCurrentSettings, session, handleExport]);
@@ -114,6 +116,7 @@ export function useExportDialogActions({
 		session.setExportProgress(null);
 		session.setExportError(null);
 		session.setExportedFilePath(undefined);
+		session.setExportReport(null);
 	}, [session]);
 
 	const handleExportDropdownClose = useCallback(() => {
