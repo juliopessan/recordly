@@ -25,7 +25,14 @@
 		"unmutedState": "Звук включен",
 		"separateClipFromAudio": "Отделить аудио от клипа",
 		"delete": "Удалить клип",
-		"removeSilence": "Удалить паузы"
+		"removeSilence": "Удалить паузы",
+		"silence": {
+			"title": "Паузы",
+			"minPause": "Минимальная пауза для удаления",
+			"preview": "Пауз: {{count}} · будет вырезано {{seconds}} с",
+			"analyze": "Найти паузы",
+			"analyzing": "Анализ звука…"
+		}
 	},
 	"effects": {
 		"title": "Эффекты",

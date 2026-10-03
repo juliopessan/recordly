@@ -25,7 +25,14 @@
 		"unmutedState": "O áudio está tocando",
 		"separateClipFromAudio": "Separar áudio do clipe",
 		"delete": "Excluir clipe",
-		"removeSilence": "Remover silêncios"
+		"removeSilence": "Remover silêncios",
+		"silence": {
+			"title": "Silêncios",
+			"minPause": "Menor pausa a cortar",
+			"preview": "{{count}} pausas · {{seconds}}s seriam cortados",
+			"analyze": "Encontrar silêncios",
+			"analyzing": "Analisando o áudio…"
+		}
 	},
 	"effects": {
 		"title": "Efeitos de vídeo",

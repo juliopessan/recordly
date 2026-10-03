@@ -25,7 +25,14 @@
 		"unmutedState": "音频正在播放",
 		"separateClipFromAudio": "将剪辑与音频分离",
 		"delete": "删除片段",
-		"removeSilence": "移除静音"
+		"removeSilence": "移除静音",
+		"silence": {
+			"title": "静音",
+			"minPause": "要剪掉的最短停顿",
+			"preview": "{{count}} 处停顿 · 将剪掉 {{seconds}} 秒",
+			"analyze": "查找静音",
+			"analyzing": "正在分析音频…"
+		}
 	},
 	"effects": {
 		"title": "视频效果",

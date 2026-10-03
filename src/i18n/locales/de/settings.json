@@ -25,7 +25,14 @@
 		"unmutedState": "Audio wird wiedergegeben",
 		"separateClipFromAudio": "Clip vom Audio trennen",
 		"delete": "Clip löschen",
-		"removeSilence": "Stille entfernen"
+		"removeSilence": "Stille entfernen",
+		"silence": {
+			"title": "Stille",
+			"minPause": "Kürzeste zu schneidende Pause",
+			"preview": "{{count}} Pausen · {{seconds}}s würden geschnitten",
+			"analyze": "Stille finden",
+			"analyzing": "Audio wird analysiert…"
+		}
 	},
 	"effects": {
 		"title": "Videoeffekte",

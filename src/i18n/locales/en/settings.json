@@ -31,6 +31,13 @@
 		"unmutedState": "Audio is playing",
 		"separateClipFromAudio": "Separate clip from audio",
 		"removeSilence": "Remove silences",
+		"silence": {
+			"title": "Silences",
+			"minPause": "Shortest pause to cut",
+			"preview": "{{count}} pauses · {{seconds}}s would be cut",
+			"analyze": "Find silences",
+			"analyzing": "Analyzing audio…"
+		},
 		"delete": "Delete Clip"
 	},
 	"effects": {

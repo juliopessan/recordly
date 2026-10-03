@@ -1,4 +1,9 @@
-import { type ClipRegion, getClipSourceEndMs, getClipSourceStartMs, sortClipRegions } from "./types";
+import {
+	type ClipRegion,
+	getClipSourceEndMs,
+	getClipSourceStartMs,
+	sortClipRegions,
+} from "./types";
 
 /** A stretch of the recording with no speech, in source (recording) milliseconds. */
 export interface SilenceSpan {
@@ -112,4 +117,15 @@ export function planSilenceRemoval(params: {
 	}
 
 	return { clips: result, cutCount, removedSourceMs: Math.round(removedSourceMs) };
+}
+
+/** What the clip inspector needs to analyze, preview and apply silence removal. */
+export interface SilenceRemovalControls {
+	minSilenceMs: number;
+	setMinSilenceMs: (value: number) => void;
+	isAnalyzing: boolean;
+	/** Null until the recording has been analyzed. Figures are computed from the clips. */
+	preview: { cutCount: number; removedSourceMs: number } | null;
+	analyze: () => void | Promise<void>;
+	apply: () => void;
 }

@@ -25,7 +25,14 @@
 		"unmutedState": "Audio wordt afgespeeld",
 		"separateClipFromAudio": "Clip van audio scheiden",
 		"delete": "Clip verwijderen",
-		"removeSilence": "Stiltes verwijderen"
+		"removeSilence": "Stiltes verwijderen",
+		"silence": {
+			"title": "Stiltes",
+			"minPause": "Kortste pauze om te knippen",
+			"preview": "{{count}} pauzes · {{seconds}}s zou worden geknipt",
+			"analyze": "Stiltes zoeken",
+			"analyzing": "Audio analyseren…"
+		}
 	},
 	"effects": {
 		"title": "Video-effecten",

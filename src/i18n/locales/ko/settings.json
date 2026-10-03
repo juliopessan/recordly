@@ -25,7 +25,14 @@
 		"unmutedState": "오디오가 재생 중",
 		"separateClipFromAudio": "클립에서 오디오 분리",
 		"delete": "클립 삭제",
-		"removeSilence": "무음 구간 제거"
+		"removeSilence": "무음 구간 제거",
+		"silence": {
+			"title": "무음 구간",
+			"minPause": "자를 최소 무음 길이",
+			"preview": "무음 {{count}}개 · {{seconds}}초가 잘립니다",
+			"analyze": "무음 구간 찾기",
+			"analyzing": "오디오 분석 중…"
+		}
 	},
 	"effects": {
 		"title": "비디오 효과",

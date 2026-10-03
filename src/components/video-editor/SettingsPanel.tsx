@@ -86,6 +86,7 @@ import {
 	DEFAULT_ZOOM_IN_DURATION_MS,
 	DEFAULT_ZOOM_OUT_DURATION_MS,
 } from "./types";
+import type { SilenceRemovalControls } from "./silenceRemoval";
 import { fromCursorSwaySliderValue, toCursorSwaySliderValue } from "./videoPlayback/cursorSway";
 import { isZeroPadding } from "./videoPlayback/layoutUtils";
 import { getPreviewPlaybackRateRange } from "./videoPlayback/playbackRate";
@@ -438,7 +439,7 @@ interface SettingsPanelProps {
 	onClipSpeedChange?: (speed: number) => void;
 	onClipMutedChange?: (muted: boolean) => void;
 	onClipDelete?: (id: string) => void;
-	onRemoveSilence?: () => void | Promise<void>;
+	silenceRemoval?: SilenceRemovalControls;
 	selectedAudioId?: string | null;
 	selectedAudioVolume?: number | null;
 	selectedAudioNormalize?: boolean | null;
@@ -895,7 +896,7 @@ export function SettingsPanel({
 	onClipSpeedChange,
 	onClipMutedChange,
 	onClipDelete,
-	onRemoveSilence,
+	silenceRemoval,
 	selectedAudioId,
 	selectedAudioVolume,
 	selectedAudioNormalize,
@@ -2729,10 +2730,59 @@ export function SettingsPanel({
 						{tSettings("clip.resetAudioSettings", "Reset audio settings")}
 					</Button>
 				)}
-				{onRemoveSilence && (
-					<Button type="button" variant="ghost" onClick={() => void onRemoveSilence()}>
-						{tSettings("clip.removeSilence", "Remove silences")}
-					</Button>
+				{silenceRemoval && (
+					<div className="flex flex-col gap-2 pt-2">
+						<SectionLabel>{tSettings("clip.silence.title", "Silences")}</SectionLabel>
+						<SliderControl
+							label={tSettings("clip.silence.minPause", "Shortest pause to cut")}
+							value={silenceRemoval.minSilenceMs}
+							min={400}
+							max={3000}
+							step={100}
+							onChange={silenceRemoval.setMinSilenceMs}
+							formatValue={(value) => `${(value / 1000).toFixed(1)}s`}
+						/>
+						{silenceRemoval.preview ? (
+							<>
+								<p
+									className="text-xs text-muted-foreground tabular-nums"
+									role="status"
+								>
+									{tSettings(
+										"clip.silence.preview",
+										"{{count}} pauses · {{seconds}}s would be cut",
+										{
+											count: silenceRemoval.preview.cutCount,
+											seconds: (
+												silenceRemoval.preview.removedSourceMs / 1000
+											).toFixed(1),
+										},
+									)}
+								</p>
+								<Button
+									type="button"
+									size="sm"
+									variant="secondary"
+									isDisabled={silenceRemoval.preview.cutCount === 0}
+									onClick={silenceRemoval.apply}
+								>
+									{tSettings("clip.removeSilence", "Remove silences")}
+								</Button>
+							</>
+						) : (
+							<Button
+								type="button"
+								size="sm"
+								variant="secondary"
+								isDisabled={silenceRemoval.isAnalyzing}
+								onClick={() => void silenceRemoval.analyze()}
+							>
+								{silenceRemoval.isAnalyzing
+									? tSettings("clip.silence.analyzing", "Analyzing audio…")
+									: tSettings("clip.silence.analyze", "Find silences")}
+							</Button>
+						)}
+					</div>
 				)}
 			</section>
 		);
