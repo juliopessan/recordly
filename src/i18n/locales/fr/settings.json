@@ -232,6 +232,13 @@
 		"uploadErrorDescription": "Seules les images JPG et JPEG sont prises en charge."
 	},
 	"export": {
+		"platform": {
+			"title": "Plateforme",
+			"youtube": "YouTube",
+			"tiktok": "TikTok",
+			"instagram": "Instagram",
+			"linkedin": "LinkedIn"
+		},
 		"title": "Exportation",
 		"mp4": "MP4",
 		"gif": "GIF",

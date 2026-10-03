@@ -119,6 +119,7 @@ export default function VideoEditor() {
 		initialEditorPreferences,
 		autoCaptions,
 		timeline.clipRegions,
+		{ aspectRatio, setAspectRatio },
 	);
 	const {
 		includeCaptionSidecar,

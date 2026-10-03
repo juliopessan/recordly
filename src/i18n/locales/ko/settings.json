@@ -232,6 +232,13 @@
 		"uploadErrorDescription": "JPG 또는 JPEG 이미지 파일을 업로드해 주세요."
 	},
 	"export": {
+		"platform": {
+			"title": "플랫폼",
+			"youtube": "YouTube",
+			"tiktok": "TikTok",
+			"instagram": "Instagram",
+			"linkedin": "LinkedIn"
+		},
 		"title": "내보내기",
 		"mp4": "MP4",
 		"gif": "GIF",

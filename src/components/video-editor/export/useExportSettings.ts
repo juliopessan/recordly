@@ -10,8 +10,14 @@ import type {
 	GifSizePreset,
 } from "@/lib/exporter";
 import { projectCaptionCues } from "../captionTimeline";
+import type { AspectRatio } from "@/utils/aspectRatioUtils";
 import type { EditorPreferences } from "../editorPreferences";
 import type { CaptionCue, ClipRegion } from "../types";
+import {
+	type ExportPlatformPresetId,
+	getExportPlatformPreset,
+	matchExportPlatformPreset,
+} from "./exportPlatformPresets";
 
 const DEFAULT_MP4_EXPORT_FRAME_RATE: ExportMp4FrameRate = 30;
 
@@ -19,6 +25,7 @@ export function useExportSettings(
 	preferences: EditorPreferences,
 	autoCaptions: CaptionCue[],
 	clips: ClipRegion[],
+	aspect: { aspectRatio: AspectRatio; setAspectRatio: (aspectRatio: AspectRatio) => void },
 ) {
 	const [includeCaptionSidecar, setIncludeCaptionSidecar] = useState(false);
 	const [exportQuality, setExportQuality] = useState<ExportQuality>(preferences.exportQuality);
@@ -38,6 +45,18 @@ export function useExportSettings(
 	const [gifFrameRate, setGifFrameRate] = useState<GifFrameRate>(preferences.gifFrameRate);
 	const [gifLoop, setGifLoop] = useState(preferences.gifLoop);
 	const [gifSizePreset, setGifSizePreset] = useState<GifSizePreset>(preferences.gifSizePreset);
+	const platformPreset = matchExportPlatformPreset({
+		aspectRatio: aspect.aspectRatio,
+		quality: exportQuality,
+		frameRate: mp4FrameRate,
+	});
+	const applyPlatformPreset = (id: ExportPlatformPresetId) => {
+		const preset = getExportPlatformPreset(id);
+		setExportFormat("mp4");
+		aspect.setAspectRatio(preset.aspectRatio);
+		setExportQuality(preset.quality);
+		setMp4FrameRate(preset.frameRate);
+	};
 	const captionSidecarCues = useMemo(
 		() =>
 			projectCaptionCues(autoCaptions, clips)
@@ -75,5 +94,7 @@ export function useExportSettings(
 		gifSizePreset,
 		setGifSizePreset,
 		captionSidecarCues,
+		platformPreset,
+		applyPlatformPreset,
 	};
 }

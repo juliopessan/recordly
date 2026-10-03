@@ -73,6 +73,8 @@ export function EditorExportMenu(props: Props) {
 		setMp4FrameRate,
 		exportFormat,
 		setExportFormat,
+		platformPreset,
+		applyPlatformPreset,
 		gifFrameRate,
 		setGifFrameRate,
 		gifLoop,
@@ -314,6 +316,8 @@ export function EditorExportMenu(props: Props) {
 							<ExportSettingsMenu
 								exportFormat={exportFormat}
 								onExportFormatChange={setExportFormat}
+								platformPreset={platformPreset}
+								onPlatformPresetChange={applyPlatformPreset}
 								exportEncodingMode={exportEncodingMode}
 								onExportEncodingModeChange={setExportEncodingMode}
 								mp4FrameRate={mp4FrameRate}

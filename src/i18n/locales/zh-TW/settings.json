@@ -232,6 +232,13 @@
 		"uploadErrorDescription": "僅支援 JPG 與 JPEG 圖片。"
 	},
 	"export": {
+		"platform": {
+			"title": "平台",
+			"youtube": "YouTube",
+			"tiktok": "TikTok",
+			"instagram": "Instagram",
+			"linkedin": "LinkedIn"
+		},
 		"title": "匯出",
 		"mp4": "MP4",
 		"gif": "GIF",

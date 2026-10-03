@@ -232,6 +232,13 @@
 		"uploadErrorDescription": "仅支持 JPG 和 JPEG 图片。"
 	},
 	"export": {
+		"platform": {
+			"title": "平台",
+			"youtube": "YouTube",
+			"tiktok": "TikTok",
+			"instagram": "Instagram",
+			"linkedin": "LinkedIn"
+		},
 		"title": "导出",
 		"mp4": "MP4",
 		"gif": "GIF",

@@ -232,6 +232,13 @@
 		"uploadErrorDescription": "Alleen JPG- en JPEG-afbeeldingen worden ondersteund."
 	},
 	"export": {
+		"platform": {
+			"title": "Platform",
+			"youtube": "YouTube",
+			"tiktok": "TikTok",
+			"instagram": "Instagram",
+			"linkedin": "LinkedIn"
+		},
 		"title": "Exporteren",
 		"mp4": "MP4",
 		"gif": "GIF",

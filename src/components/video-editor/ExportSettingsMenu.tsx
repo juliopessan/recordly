@@ -13,11 +13,17 @@ import type {
 	GifFrameRate,
 	GifSizePreset,
 } from "@/lib/exporter";
+import {
+	EXPORT_PLATFORM_PRESETS,
+	type ExportPlatformPresetId,
+} from "./export/exportPlatformPresets";
 import { GIF_FRAME_RATES, GIF_SIZE_PRESETS, MP4_FRAME_RATES } from "@/lib/exporter";
 
 interface ExportSettingsMenuProps {
 	exportFormat: ExportFormat;
 	onExportFormatChange?: (format: ExportFormat) => void;
+	platformPreset?: ExportPlatformPresetId | null;
+	onPlatformPresetChange?: (id: ExportPlatformPresetId) => void;
 	exportQuality: ExportQuality;
 	onExportQualityChange?: (quality: ExportQuality) => void;
 	exportEncodingMode: ExportEncodingMode;
@@ -96,6 +102,8 @@ function Choices<T extends string | number>({
 export function ExportSettingsMenu({
 	exportFormat,
 	onExportFormatChange,
+	platformPreset = null,
+	onPlatformPresetChange,
 	exportQuality,
 	onExportQualityChange,
 	exportEncodingMode,
@@ -158,6 +166,40 @@ export function ExportSettingsMenu({
 				/>
 				{exportFormat === "mp4" ? (
 					<>
+						{onPlatformPresetChange && (
+							<div className="flex flex-col gap-2">
+								<Label>{tSettings("export.platform.title", "Platform")}</Label>
+								<div className="flex flex-wrap gap-2">
+									{EXPORT_PLATFORM_PRESETS.map((preset) => (
+										<Button
+											key={preset.id}
+											type="button"
+											size="sm"
+											variant={
+												platformPreset === preset.id
+													? "default"
+													: "secondary"
+											}
+											aria-pressed={platformPreset === preset.id}
+											onClick={() => onPlatformPresetChange(preset.id)}
+										>
+											{tSettings(
+												`export.platform.${preset.id}`,
+												{
+													youtube: "YouTube",
+													tiktok: "TikTok",
+													instagram: "Instagram",
+													linkedin: "LinkedIn",
+												}[preset.id],
+											)}
+											<span className="ml-1 text-[10px] opacity-70">
+												{preset.aspectRatio}
+											</span>
+										</Button>
+									))}
+								</div>
+							</div>
+						)}
 						<Choices
 							label={tSettings("export.qualityTitle", "Quality")}
 							value={exportQuality}
