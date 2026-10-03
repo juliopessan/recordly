@@ -331,6 +331,31 @@ async function generateCaptionsForSource(options: {
 	}
 }
 
+/** Find silent stretches in the recording's best audio source, in source milliseconds. */
+export async function detectRecordingSilence(options: { videoPath: string }) {
+	const ffmpegPath = getFfmpegBinaryPath();
+	const normalizedVideoPath = normalizeVideoSourcePath(options.videoPath);
+	if (!normalizedVideoPath) {
+		throw new Error("Missing source video path.");
+	}
+
+	const wavPath = path.join(
+		app.getPath("temp"),
+		`recordly-silence-${Date.now()}-${Math.random().toString(36).slice(2, 8)}.wav`,
+	);
+	try {
+		const audioSource = await extractCaptionAudioSource({
+			videoPath: normalizedVideoPath,
+			ffmpegPath,
+			wavPath,
+		});
+		const silences = await detectSilenceIntervals({ ffmpegPath, wavPath });
+		return { silences, audioSourceLabel: audioSource.label };
+	} finally {
+		await fs.rm(wavPath, { force: true });
+	}
+}
+
 export async function generateAutoCaptionsFromVideo(options: {
 	videoPath: string;
 	whisperExecutablePath?: string;

@@ -24,7 +24,8 @@
 		"mutedState": "Audio ist stummgeschaltet",
 		"unmutedState": "Audio wird wiedergegeben",
 		"separateClipFromAudio": "Clip vom Audio trennen",
-		"delete": "Clip löschen"
+		"delete": "Clip löschen",
+		"removeSilence": "Stille entfernen"
 	},
 	"effects": {
 		"title": "Videoeffekte",

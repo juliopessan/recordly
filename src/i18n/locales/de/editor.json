@@ -168,7 +168,10 @@
 		"experimentalBuilds": "Tipp: Aktiviere den Zugriff auf experimentelle Builds in den Einstellungen",
 		"cursorAppearance": "Tipp: Du kannst das Aussehen deines Cursors anpassen"
 	},
-	"account": { "title": "Konto", "comingSoon": "Konto demnächst verfügbar" },
+	"account": {
+		"title": "Konto",
+		"comingSoon": "Konto demnächst verfügbar"
+	},
 	"nativeCaptureUnavailable": {
 		"title": "Es ist nichts kaputt, aber wir können kein animiertes Cursor-Overlay rendern.",
 		"description": "Ihr Gerät unterstützt keine native Erfassung. Dies kann verschiedene Gründe haben, die wir noch nicht ermittelt haben. Recordly funktioniert weiterhin, aber eine Cursor-Glättung ist nicht möglich.",
@@ -194,5 +197,11 @@
 		"expand": "Zeitleiste erweitern",
 		"collapse": "Zeitleiste reduzieren"
 	},
-	"openRecordingsFolder": "Aufnahmeordner öffnen"
+	"openRecordingsFolder": "Aufnahmeordner öffnen",
+	"silence": {
+		"noSource": "Kein Quellvideo geladen",
+		"failed": "Das Audio der Aufnahme konnte nicht analysiert werden",
+		"none": "Keine langen Pausen gefunden",
+		"removed": "{{count}} Pausen entfernt, {{seconds}}s geschnitten"
+	}
 }

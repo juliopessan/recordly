@@ -178,6 +178,7 @@ export function useTimelineEditingController(input: Input) {
 		setAnnotationRegions: timeline.setAnnotationRegions,
 		setAudioRegions: timeline.setAudioRegions,
 		sourceDurationMs: input.duration * 1000,
+		videoSourcePath: input.videoSourcePath,
 		clipRegions: timeline.clipRegions,
 		setClipRegions: timeline.setClipRegions,
 		zoomRegions: timeline.zoomRegions,

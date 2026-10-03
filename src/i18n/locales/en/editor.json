@@ -191,6 +191,12 @@
 		"addLayer": "Add Layer",
 		"splitClip": "Split Clip (C)"
 	},
+	"silence": {
+		"noSource": "No source video is loaded",
+		"failed": "Could not analyze the recording audio",
+		"none": "No long pauses found",
+		"removed": "Removed {{count}} pauses, {{seconds}}s cut"
+	},
 	"timeline": {
 		"expand": "Expand Timeline",
 		"collapse": "Collapse Timeline"

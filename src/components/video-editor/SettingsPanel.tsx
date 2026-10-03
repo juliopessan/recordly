@@ -438,6 +438,7 @@ interface SettingsPanelProps {
 	onClipSpeedChange?: (speed: number) => void;
 	onClipMutedChange?: (muted: boolean) => void;
 	onClipDelete?: (id: string) => void;
+	onRemoveSilence?: () => void | Promise<void>;
 	selectedAudioId?: string | null;
 	selectedAudioVolume?: number | null;
 	selectedAudioNormalize?: boolean | null;
@@ -894,6 +895,7 @@ export function SettingsPanel({
 	onClipSpeedChange,
 	onClipMutedChange,
 	onClipDelete,
+	onRemoveSilence,
 	selectedAudioId,
 	selectedAudioVolume,
 	selectedAudioNormalize,
@@ -2725,6 +2727,11 @@ export function SettingsPanel({
 				{hasClipAudioOverrides && onResetClipAudio && (
 					<Button type="button" variant="ghost" onClick={onResetClipAudio}>
 						{tSettings("clip.resetAudioSettings", "Reset audio settings")}
+					</Button>
+				)}
+				{onRemoveSilence && (
+					<Button type="button" variant="ghost" onClick={() => void onRemoveSilence()}>
+						{tSettings("clip.removeSilence", "Remove silences")}
 					</Button>
 				)}
 			</section>

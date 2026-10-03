@@ -1,6 +1,6 @@
 import path from "node:path";
 import { dialog, ipcMain } from "electron";
-import { generateAutoCaptionsFromVideo } from "../captions/generate";
+import { detectRecordingSilence, generateAutoCaptionsFromVideo } from "../captions/generate";
 import {
 	deleteWhisperSmallModel,
 	downloadWhisperSmallModel,
@@ -218,6 +218,21 @@ export function registerCaptionHandlers() {
 				error: String(error),
 			});
 			return { success: false, error: String(error) };
+		}
+	});
+
+	ipcMain.handle("detect-recording-silence", async (_, options: { videoPath: string }) => {
+		try {
+			const result = await detectRecordingSilence(options);
+			return { success: true, ...result };
+		} catch (error) {
+			console.error("Failed to detect recording silence:", error);
+			return {
+				success: false,
+				error: String(error),
+				message:
+					error instanceof Error ? error.message : "Failed to detect silence in recording",
+			};
 		}
 	});
 

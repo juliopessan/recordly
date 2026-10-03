@@ -30,6 +30,7 @@
 		"mutedState": "Audio is muted",
 		"unmutedState": "Audio is playing",
 		"separateClipFromAudio": "Separate clip from audio",
+		"removeSilence": "Remove silences",
 		"delete": "Delete Clip"
 	},
 	"effects": {

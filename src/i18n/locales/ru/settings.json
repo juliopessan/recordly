@@ -24,7 +24,8 @@
 		"mutedState": "Звук выключен",
 		"unmutedState": "Звук включен",
 		"separateClipFromAudio": "Отделить аудио от клипа",
-		"delete": "Удалить клип"
+		"delete": "Удалить клип",
+		"removeSilence": "Удалить паузы"
 	},
 	"effects": {
 		"title": "Эффекты",

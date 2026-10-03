@@ -1,5 +1,11 @@
 import type { ClipSequenceSpan } from "../timeline/core/timelineTypes";
-import { type Dispatch, type MutableRefObject, type SetStateAction, useCallback } from "react";
+import {
+	type Dispatch,
+	type MutableRefObject,
+	type SetStateAction,
+	useCallback,
+	useRef,
+} from "react";
 import { toast } from "@/components/ui/toast";
 import { changeClipSpan } from "../clipSpanChange";
 import {
@@ -10,6 +16,7 @@ import {
 } from "../clipSequence";
 import { getClipSourceStartMs, type AnnotationRegion, type AudioRegion } from "../types";
 import { planClipSplit } from "../clipSplit";
+import { planSilenceRemoval } from "../silenceRemoval";
 import type { ClipRegion, EditorEffectSection, ZoomRegion } from "../types";
 import { supportsPreviewPlaybackRate } from "../videoPlayback/playbackRate";
 
@@ -23,6 +30,7 @@ interface UseClipRegionCommandsParams {
 	setAnnotationRegions: Dispatch<SetStateAction<AnnotationRegion[]>>;
 	setAudioRegions: Dispatch<SetStateAction<AudioRegion[]>>;
 	sourceDurationMs: number;
+	videoSourcePath: string | null;
 	clipRegions: ClipRegion[];
 	setClipRegions: Dispatch<SetStateAction<ClipRegion[]>>;
 	zoomRegions: ZoomRegion[];
@@ -42,6 +50,7 @@ export function useClipRegionCommands({
 	setAnnotationRegions,
 	setAudioRegions,
 	sourceDurationMs,
+	videoSourcePath,
 	clipRegions,
 	setClipRegions,
 	setZoomRegions,
@@ -65,6 +74,48 @@ export function useClipRegionCommands({
 		},
 		[clipRegions, setClipRegions, setZoomRegions, setAnnotationRegions, setAudioRegions],
 	);
+
+	const silenceRemovalInFlightRef = useRef(false);
+	const handleRemoveSilence = useCallback(async () => {
+		if (silenceRemovalInFlightRef.current) return;
+		if (!videoSourcePath) {
+			toast.error(t("editor.silence.noSource", "No source video is loaded"));
+			return;
+		}
+		silenceRemovalInFlightRef.current = true;
+		try {
+			const detected = await window.electronAPI.detectRecordingSilence({
+				videoPath: videoSourcePath,
+			});
+			if (!detected.success || !detected.silences) {
+				toast.error(
+					detected.message ??
+						t("editor.silence.failed", "Could not analyze the recording audio"),
+				);
+				return;
+			}
+			const plan = planSilenceRemoval({
+				clipRegions,
+				silences: detected.silences,
+				createId: () => `clip-${nextClipIdRef.current++}`,
+			});
+			if (plan.cutCount === 0) {
+				toast.info(t("editor.silence.none", "No long pauses found"));
+				return;
+			}
+			applySequence(plan.clips);
+			setSelectedClipId(null);
+			toast.success(
+				t(
+					"editor.silence.removed",
+					"Removed {{count}} pauses, {{seconds}}s cut",
+					{ count: plan.cutCount, seconds: (plan.removedSourceMs / 1000).toFixed(1) },
+				),
+			);
+		} finally {
+			silenceRemovalInFlightRef.current = false;
+		}
+	}, [applySequence, clipRegions, nextClipIdRef, setSelectedClipId, t, videoSourcePath]);
 
 	const handleSelectClip = useCallback(
 		(id: string | null) => {
@@ -202,5 +253,6 @@ export function useClipRegionCommands({
 		handleClipMutedChange,
 		handleClipShowSourceAudioChange,
 		handleClipDelete,
+		handleRemoveSilence,
 	};
 }
